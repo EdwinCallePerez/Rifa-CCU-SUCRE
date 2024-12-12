@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Sorteo con Globos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+     
+        <div class="column" id="participantes">
+            <h2>Lista de Participantes</h2>
+            <form id="uploadForm">
+                <input type="file" id="excelFile" accept=".xlsx, .xls" required>
+                <button type="submit">Subir Archivo</button>
+                <ul id="listaParticipantes"></ul>
+
+            </form>
+            
+        </div>
+
+        <div class="column" id="sorteo">
+            <h1>RIFA NAVIDEÑA 2024 CCU- SUCRE</h1>
+    
+            
+            <center>
+                <button id="ganadorBtn" style="display:none;">Elegir Ganador</button>
+          <!--  <button id="obtenerOtroBtn" style="display:none;">Obtener Otro Ganador</button>--> 
+           
+            <div id="globosPanel" class="globos-panel"></div>
+            <div id="ganadorDisplay" style="display:none;">
+                <div id="ganadorNombre"></div>
+                <button id="aceptarGanadorBtn">Aceptar</button>
+            </div>
+        </center>
+        </div>
+
+        <div class="column" id="ganadores">
+            <h2>Lista de Ganadores</h2>
+            <img src="CCU LOGO.png" alt="Rifa Navideña 2024" class="imagen-rifa">
+            <ul id="ganadoresLista"></ul>
+            
+        </div>
+       <!-- Añadir en el HTML el contenedor para mostrar al ganador -->
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

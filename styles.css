@@ -1,0 +1,395 @@
+/* Estilo global */
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #FF7F50, #4682B4, #FF4500); /* Degradado con naranja, azul y rojo */
+    color: #fff; /* Texto blanco para mejor visibilidad */
+}
+
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    width: 90%;
+  
+    max-width: 1200px;
+    gap: 20px;
+}
+
+/* Estilo para las columnas */
+.column {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Título */
+h1 {
+    font-size: 2.5rem; /* Tamaño mayor para destacar */
+    text-align: center; 
+    margin-bottom: 20px;
+    color: #2C3E50; /* Color oscuro y elegante */
+    font-family: 'Arial', sans-serif; /* Fuente moderna y sencilla */
+    font-weight: bold; /* Negrita para hacerlo más notorio */
+    text-transform: uppercase; /* Mayúsculas para resaltar */
+    letter-spacing: 2px; /* Espaciado entre letras para más impacto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para resaltar */
+    transition: all 0.3s ease-in-out; /* Transición suave */
+}
+h2{
+  
+    text-align: center; 
+    margin-bottom: 20px;
+    color: #101112; /* Color oscuro y elegante */
+    font-family: 'Arial', sans-serif; /* Fuente moderna y sencilla */
+    font-weight: bold; /* Negrita para hacerlo más notorio */
+    text-transform: uppercase; /* Mayúsculas para resaltar */
+    letter-spacing: 2px; /* Espaciado entre letras para más impacto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para resaltar */
+    transition: all 0.3s ease-in-out; /* Transición suave */
+}
+/* Efecto de hover para cuando el título es interactuado */
+h1:hover {
+    color: #E74C3C; /* Rojo suave cuando se pasa el ratón */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2); /* Aumentar sombra */
+}
+
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input[type="file"] {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Estilo de los globos */
+#globosPanel {
+    display: grid;
+    grid-template-columns: repeat(12, 1cm);  /* Cada columna tiene 1 cm de ancho */
+    gap: 5px;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Animaciones */
+.globo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1cm;
+    height: 1cm;
+    font-size: 0.3cm;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: hsl(calc(360 * var(--index) / var(--total)), 70%, 50%);
+    animation: brillar 0.5s ease-in-out infinite alternate;
+}
+
+/* Animaciones */
+@keyframes brillar {
+    0% {
+        box-shadow: 0 0 5px rgba(211, 28, 28, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(114, 152, 26, 0.9);
+    }
+}
+
+@keyframes brillarGanador {
+    0% {
+        box-shadow: 0 0 30px rgb(28, 22, 138);
+    }
+    100% {
+        box-shadow: 0 0 50px rgb(172, 27, 97);
+    }
+}
+
+@keyframes recorridoBrillante {
+    0% {
+        box-shadow: 0 0 10px rgba(178, 115, 20, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(209, 250, 3, 0.7);
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 px rgba(243, 247, 4, 0.3);
+        transform: scale(1);
+    }
+}
+
+/* Estado de los globos seleccionados y ganadores */
+.globo.ganador {
+    animation: brillarGanador 1s ease-in-out forwards, recorridoBrillante 1s ease-in-out infinite alternate;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1); /* Brillo más fuerte */
+}
+
+.globo.seleccionado {
+    background-color: #ffcc00; /* Color dorado para resaltar */
+    animation: resaltarGlobo 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes resaltarGlobo {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
+
+.globo.recorrido {
+    animation: recorridoBrillante 1s ease-in-out infinite alternate;
+}
+
+/* Estilo de los ganadores en la lista */
+/* Contenedor para participantes y ganadores */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que las columnas se ajusten si hay poco espacio */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilo para la columna de ganadores */
+#ganadoresLista {
+    flex: 1; /* Ocupa el mismo espacio que la lista de participantes */
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 10px;
+    overflow-y: auto;
+
+    max-height: 300px; /* Altura máxima para scroll */
+}
+
+/* Estilo para elementos individuales en la lista de ganadores */
+#ganadoresLista li {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    background-color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 10px;
+}
+
+#ganadoresLista li:hover {
+    background-color: #f1f1f1;
+    transform: translateX(5px);
+}
+
+
+/* Estilo del mensaje del ganador */
+/* Cuadro de ganador con fondo */
+#ganadorDisplay {
+    position: fixed;       /* Fija el cuadro en la pantalla */
+    top: 50%;              /* Lo coloca en el centro vertical */
+    left: 50%;             /* Lo coloca en el centro horizontal */
+    transform: translate(-50%, -50%);  /* Ajusta el cuadro para que quede centrado */
+    background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente para resaltar el cuadro */
+    color: white;          /* Color del texto */
+    padding: 30px;         /* Aumenta el espacio interno (tamaño del cuadro) */
+    font-size: 35px;       /* Cambia el tamaño del texto */
+    border-radius: 10px;   /* Bordes redondeados */
+    display: none;         /* Inicialmente oculto */
+    z-index: 9999;         /* Asegura que el cuadro esté por encima de otros elementos */
+    max-width: 90%;        /* Limita el ancho máximo del cuadro (para pantallas grandes) */
+    text-align: center;    /* Centra el texto dentro del cuadro */
+}
+
+
+#ganadorDisplay span {
+    font-family: 'Pacifico', sans-serif; /* Fuente más bonita */
+    font-size: 3rem; /* Tamaño más grande para el nombre */
+    color: #ffcc00; /* Color dorado */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Sombra para resaltar el texto */
+    animation: resaltar 1s ease-in-out infinite; /* Animación para resaltar el nombre */
+}
+
+/* Efecto de resaltar el nombre */
+@keyframes resaltar {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Estilo para el contenedor de la lista de participantes */
+#listaParticipantes {
+    color: black;
+    margin-top: 20px;
+    padding: 10px;
+    list-style-type: none;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;  /* Habilitar scroll vertical */
+    max-height: 300px;  /* Altura máxima para que aparezca el scroll */
+}
+
+/* Estilo para cada elemento de la lista */
+#listaParticipantes li {
+    background-color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Efecto hover cuando el cursor pasa por encima del item */
+#listaParticipantes li:hover {
+    background-color: #f1f1f1;
+    transform: translateX(5px);
+}
+
+/* Estilo para el número del participante */
+#listaParticipantes li span.numero {
+    font-weight: bold;
+    color: #4CAF50;  /* Color verde */
+}
+
+/* Estilo para el nombre del participante */
+#listaParticipantes li span.nombre {
+    color: #333;
+}
+
+/* Cabecera de la lista con "NRo. Rifa" y "Nombre" */
+#listaParticipantes .header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #e1e1e1;
+    padding: 10px;
+    border-radius: 8px;
+    color: #333;
+}
+
+/* Resaltar el primer y último elemento */
+#listaParticipantes li:first-child {
+    border-top: 3px solid #4CAF50; /* Resaltar el primer elemento */
+}
+
+#listaParticipantes li:last-child {
+    border-bottom: 3px solid #4CAF50; /* Resaltar el último elemento */
+}
+/* Estilo para la lista de ganadores */
+#ganadoresLista {
+    list-style-type: none;
+    padding: 0;
+    color: black;
+   
+}
+
+
+
+/* Estilo para el nombre del ganador */
+#ganadoresLista li span {
+    margin-right: 10px;
+    flex: 1;
+}
+
+/* Estilo para el input (campo de premio) */
+
+
+#ganadoresLista li {
+    display: block;  /* Cambiar a bloque para que se apilen verticalmente */
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Estilo para el nombre del ganador */
+#ganadoresLista li span {
+    display: block;  /* Asegura que el nombre ocupe toda la línea */
+    margin-bottom: 5px;  /* Espacio entre el nombre y el campo de entrada */
+}
+
+/* Estilo para el input (campo de premio) */
+.premio-input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;  /* Ajustar al tamaño del contenedor */
+    background-color: #f9f9f9;
+    transition: border 0.3s;
+}
+
+.premio-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.premio-input::placeholder {
+    color: #888;
+}
+/* Estilo para la imagen debajo del título */
+.imagen-rifa {
+    display: block;
+    max-width: 70%;  /* Reducir el tamaño de la imagen al 60% de su contenedor */
+    height: auto;  /* Mantiene las proporciones de la imagen */
+    margin: 10px auto;  /* Añade espacio arriba y abajo, y centra la imagen */
+    border-radius: 10px; /* Opcional: bordes redondeados para la imagen */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Opcional: sombra sutil */
+}
+
