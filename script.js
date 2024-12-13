@@ -145,7 +145,7 @@ function elegirGanador() {
             ganadorBtn.style.display = 'none';
             obtenerOtroBtn.style.display = 'none';
         }
-    }, 10000); // Esperamos 3 segundos para elegir el ganador
+    }, 50000); // Esperamos 3 segundos para elegir el ganador
 }
 
 // Función para aceptar al ganador
