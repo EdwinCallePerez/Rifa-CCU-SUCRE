@@ -116,7 +116,7 @@ function elegirGanador() {
     };
 
     // Iniciar la animación
-    intervalo = setInterval(animarGlobos, 8);
+    intervalo = setInterval(animarGlobos, 12);
 
     // Seleccionar el ganador después de un tiempo
     setTimeout(() => {
@@ -145,7 +145,7 @@ function elegirGanador() {
             ganadorBtn.style.display = 'none';
             obtenerOtroBtn.style.display = 'none';
         }
-    }, 7000); // Esperamos 3 segundos para elegir el ganador
+    }, 10000); // Esperamos 3 segundos para elegir el ganador
 }
 
 // Función para aceptar al ganador
